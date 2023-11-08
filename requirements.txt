@@ -1,0 +1,6 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+transformers~=4.22.0
+torch
+scikit-learn==0.22.1
+streamlit==1.4.0
