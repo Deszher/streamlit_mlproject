@@ -10,7 +10,7 @@ T5 for belarusian language
 Сначала нужно установить anaconda https://docs.anaconda.com/free/anaconda/install/mac-os/
 ```bash
 # Без venv
-# Устанавливаем зависимости
+# Устанавливаем зависимости 
 pip install -r requirements.txt
 # Запускаем WEB-приложение
 streamlit run main.py
@@ -19,9 +19,9 @@ streamlit run main.py
 # Создаем venv
 python3 -m venv .venv
 source .venv/bin/activate
-# Устанавливаем зависимости в venv
+# Устанавливаем зависимости в venv 
 pip install -r requirements.txt
-# Запускаем WEB-приложение
+# Запускаем WEB-приложение 
 streamlit run main.py
 ```
 
@@ -30,7 +30,7 @@ streamlit run main.py
 # Собираем образ
 docker build -t streamlit_mlproject .
 
-# Запускаем
+# Запускаем 
 docker run -p 8501:8501 streamlit_mlproject
 ```
 
