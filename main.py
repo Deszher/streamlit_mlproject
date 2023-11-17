@@ -16,10 +16,10 @@ with col1:
     st.header('Model "ML translation RuBe"')
 
 with col2:
-    st.image("unn.jpg")
+    st.image("assets/unn.jpg")
 
 # Боковая панель
-st.sidebar.image("T5.png", width=100)
+st.sidebar.image("assets/T5.png", width=100)
 st.sidebar.title("About the project:")
 st.sidebar.info(
     """
