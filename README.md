@@ -28,10 +28,39 @@ streamlit run main.py
 ### Использование с докером
 ```bash
 # Собираем образ
-docker build -t streamlit_mlproject .
+docker build -t mlproject_base -f Dockerfile_base .
+docker build -t mlproject_streamlit -f Dockerfile_streamlit .
 
-# Запускаем 
-docker run -p 8501:8501 streamlit_mlproject
+# Запускаем контейнер
+docker run -p 8501:8501 mlproject_streamlit
 ```
 
  Веб сервер будет доступен по адресу http://localhost:8501/
+
+## Запуск ML fastapi
+
+For dev
+
+```bash
+uvicorn main_fast_api:app --reload
+```
+
+### Использование с докером
+```bash
+# Собираем образ
+docker build -t mlproject_base -f Dockerfile_base .
+docker build -t mlproject_fastapi -f Dockerfile_fastapi .
+
+# Запускаем контейнер
+docker run -p 8000:8000 mlproject_fastapi
+```
+
+FastAPI сервер будет доступен по адресу http://127.0.0.1:8000/
+
+## Тестирование
+
+```bash
+pytest
+```
+
+
