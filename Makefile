@@ -10,11 +10,11 @@ create-venv:
 
 .PHONY: install-deps
 install-deps:
-	. ./.venv/bin/activate && pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt
+	. ./.venv/bin/activate && pip install -r requirements.txt
 
 .PHONY: dump-deps
 dump-deps:
-	. ./.venv/bin/activate && python -m pip freeze --no-deps > requirements.txt
+	. ./.venv/bin/activate && echo "--extra-index-url https://download.pytorch.org/whl/cpu" > requirements.txt && python -m pip freeze >> requirements.txt
 
 .PHONY: version
 version:
