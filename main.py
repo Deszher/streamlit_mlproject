@@ -3,11 +3,12 @@
 """
 
 import time
+from translator import Translator
 
 import streamlit as st
 from transformers import pipeline
 
-translator = pipeline("translation", model="WelfCrozzo/T5-L128-belarusian")
+translator = Translator()
 
 #  логотип и название
 col1, col2 = st.columns([1, 1])
@@ -48,11 +49,11 @@ run_button = st.button(label='Run')
 if run_button:
     with st.spinner('Wait for it...'):
         time.sleep(2)
-        text = translator(inp, 50)
+        text = translator.translate(inp)
     st.balloons()
     st.success(f"'{inp}' в переводе на белорусский язык означает:")
 
-    st.write(text[0]['translation_text'])
+    st.write(text)
 
 # streamlit run main.py
 # streamlit run C:/Users/Админ/PycharmProjects/fill-mask/main.py

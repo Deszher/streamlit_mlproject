@@ -1,29 +1,28 @@
+import pytest
 from fastapi.testclient import TestClient
-
 from main_fast_api import app
 
 client = TestClient(app)
+
+translate_testdata = [
+    ("Не ищи счастье – оно всегда у тебя внутри", "Яна заўсёды ў цябе ўнутры"),
+    ("Отличная сегодня погода!", "Выдатная сёння надвор'е!"),
+]
 
 
 def test_get_main():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "All right, there is a connection."}
+    assert response.text.find("/docs") != -1
 
 
-def test_post_predict_one():
+@pytest.mark.parametrize("input,expected_output", translate_testdata)
+def test_post_predict(input, expected_output):
     response = client.post(
-        "/predict/", json={"text": "Не ищи счастье – оно всегда у тебя внутри"}
+        "/predict/", json={"text": input}
     )
     json_data = response.json()
 
     assert response.status_code == 200
-    assert json_data == "Яна заўсёды ў цябе ўнутры"
-
-
-def test_post_predict_two():
-    response = client.post("/predict/", json={"text": "Отличная сегодня погода!"})
-    json_data = response.json()
-
-    assert response.status_code == 200
-    assert json_data == "Выдатная сёння надвор'е!"
+    assert "result" in json_data
+    assert json_data["result"] == expected_output
