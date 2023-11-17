@@ -1,0 +1,11 @@
+FROM mlproject_base:latest
+
+COPY . .
+
+RUN pytest && rm -r .pytest_cache
+
+EXPOSE 8501
+
+HEALTHCHECK CMD curl --fail http://localhost:8000/
+
+ENTRYPOINT ["uvicorn", "main_fast_api:app", "--host", "0.0.0.0", "--port", "8000"]
