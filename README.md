@@ -7,7 +7,6 @@ T5 for belarusian language
 ## Запуск WEB-приложения streamlit
 
 ### Использование без докера
-Сначала нужно установить anaconda https://docs.anaconda.com/free/anaconda/install/mac-os/
 ```bash
 # Без venv
 # Устанавливаем зависимости 
