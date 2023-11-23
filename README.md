@@ -4,7 +4,14 @@ _________________________________________
 Web-приложение на основе библиотеки Streamlit и API-сервер на основе FastAPI, которые используют библиотеку машинного обучения: Hugging Face.
 T5 for belarusian language
 
-## Запуск WEB-приложения streamlit
+## Deploy pipeline
+
+FastAPI production host: https://api.ml1.webtm.ru/
+Streamlit production host: https://streamlit.ml1.webtm.ru/
+
+Разворачивается при мерже/пуше в ветки main/develop изменений с использованием github actions.
+
+## Локальный запуск WEB-приложения streamlit
 
 ### Использование без докера
 ```bash
@@ -36,7 +43,7 @@ docker run -p 8501:8501 mlproject_streamlit
 
  Веб сервер будет доступен по адресу http://localhost:8501/
 
-## Запуск ML fastapi
+## Локальный запуск ML fastapi
 
 For dev
 
