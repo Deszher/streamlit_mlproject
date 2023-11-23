@@ -32,6 +32,7 @@ jobs:
 
   deploy:
 
+    needs: build
     runs-on: ubuntu-latest
     env:
       target: deploy_ml1
@@ -40,13 +41,13 @@ jobs:
       pipeline_trigger_token: glptt-85b4f3b4b72ab0eee91d0de48e09427fc1d20cb7
     steps:
     - name: Debug variables
-      run: echo "target=$target tags=$tags project_id=$project_id"
+      run: echo "target=$target image_tag=${{ github.ref_name }} tags=$tags project_id=$project_id"
     - name: Run deploy pipeline, see https://gitlab.com/djvue/urfu-deployments/-/pipelines
       run: |
         curl --request POST \
               --form "token=$pipeline_trigger_token" \
               --form ref=master \
               --form "variables[target]=$target" \
-              --form "variables[image_tag]=$image_tag" \
+              --form "variables[image_tag]=${{ github.ref_name }}" \
               --form "variables[tags]=$tags" \
               "https://gitlab.com/api/v4/projects/$project_id/trigger/pipeline"
