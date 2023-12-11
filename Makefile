@@ -34,11 +34,11 @@ docker-build-base:
 
 .PHONY: docker-build-streamlit
 docker-build-streamlit:
-	docker build -t mlproject_streamlit -f Dockerfile_streamlit .
+	docker build -t mlproject_streamlit --build-arg DEPS_IMAGE=mlproject_base -f Dockerfile_streamlit .
 
 .PHONY: docker-build-fastapi
 docker-build-fastapi:
-	docker build -t mlproject_fastapi -f Dockerfile_fastapi --progress=plain .
+	docker build -t mlproject_fastapi --build-arg DEPS_IMAGE=mlproject_base -f Dockerfile_fastapi --progress=plain .
 
 .PHONY: docker-start-streamlit
 docker-start-streamlit:

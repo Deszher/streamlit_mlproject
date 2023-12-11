@@ -1,4 +1,5 @@
-FROM mlproject_base:latest
+ARG DEPS_IMAGE
+FROM ${DEPS_IMAGE}
 
 COPY . .
 

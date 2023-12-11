@@ -35,7 +35,7 @@ streamlit run main.py
 ```bash
 # Собираем образ
 docker build -t mlproject_base -f Dockerfile_base .
-docker build -t mlproject_streamlit -f Dockerfile_streamlit .
+docker build -t mlproject_streamlit --build-arg DEPS_IMAGE=mlproject_base -f Dockerfile_streamlit .
 
 # Запускаем контейнер
 docker run -p 8501:8501 mlproject_streamlit
@@ -55,7 +55,7 @@ uvicorn main_fast_api:app --reload
 ```bash
 # Собираем образ
 docker build -t mlproject_base -f Dockerfile_base .
-docker build -t mlproject_fastapi -f Dockerfile_fastapi .
+docker build -t mlproject_fastapi --build-arg DEPS_IMAGE=mlproject_base -f Dockerfile_fastapi .
 
 # Запускаем контейнер
 docker run -p 8000:8000 mlproject_fastapi
