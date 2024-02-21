@@ -19,6 +19,6 @@ class Translator:
 
         encoded_output = result["sequences"][0]
 
-        decoded = self._tokenizer.decode(encoded_output, skip_special_tokens = True, clean_up_tokenization_spaces = True)
+        decoded = self._tokenizer.decode(encoded_output, skip_special_tokens=True, clean_up_tokenization_spaces=True)
 
         return decoded
