@@ -3,9 +3,9 @@
 """
 
 import time
-from translator import Translator
 
 import streamlit as st
+from translator import Translator
 
 translator = Translator()
 
@@ -49,7 +49,7 @@ if run_button:
     with st.spinner('Wait for it...'):
         time.sleep(2)
         text = translator.translate(inp)
-        
+
     st.balloons()
     st.success(f"'{inp}' в переводе на белорусский язык означает:")
 
