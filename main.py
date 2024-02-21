@@ -21,8 +21,10 @@ with col2:
 # Боковая панель
 st.sidebar.image("assets/T5.png", width=100)
 st.sidebar.title("About the project:")
-st.sidebar.info("""This model is based on T5-small with sequence length equal 128 tokens.  
-    (https://huggingface.co/WelfCrozzo/T5-L128-belarusian).""")
+st.sidebar.info(
+    """This model is based on T5-small with sequence length equal 128 tokens.  
+    (https://huggingface.co/WelfCrozzo/T5-L128-belarusian)."""
+)
 
 st.sidebar.info(
     """Model trained from scratch on RTX 3090 24GB"""
