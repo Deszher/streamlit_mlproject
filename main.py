@@ -22,10 +22,8 @@ with col2:
 st.sidebar.image("assets/T5.png", width=100)
 st.sidebar.title("About the project:")
 st.sidebar.info(
-    """
-    This model is based on T5-small with sequence length equal 128 tokens.  
-    (https://huggingface.co/WelfCrozzo/T5-L128-belarusian). 
-    """
+    """This model is based on T5-small with sequence length equal 128 tokens.  
+    (https://huggingface.co/WelfCrozzo/T5-L128-belarusian)."""
 )
 
 st.sidebar.info(
@@ -57,4 +55,3 @@ if run_button:
 
 # streamlit run main.py
 # streamlit run C:/Users/Админ/PycharmProjects/fill-mask/main.py
-
